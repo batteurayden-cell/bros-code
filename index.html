@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Les 50 règles du Bros Code : loyauté, respect et fraternité.">
+<title>BROS CODE — Les 50 règles</title>
+<style>
+:root{--bg:#080808;--panel:#121212;--panel2:#191919;--red:#ff3038;--text:#f6f6f6;--muted:#aaa;--line:#303030}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at top,#321013 0%,var(--bg) 42%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+.wrap{width:min(100% - 28px,960px);margin:auto}
+header{padding:52px 0 28px;text-align:center}
+.logo{width:76px;height:76px;border:2px solid var(--red);border-radius:22px;display:grid;place-items:center;margin:0 auto 18px;background:#19090a;box-shadow:0 0 35px #ff303833;font-size:38px}
+.kicker{color:var(--red);font-weight:800;letter-spacing:.22em;font-size:.75rem;text-transform:uppercase}
+h1{font-size:clamp(2.5rem,9vw,5.5rem);line-height:.98;letter-spacing:-.06em;margin:12px 0}
+h1 span{color:var(--red)}
+.subtitle{color:#c7c7c7;max-width:540px;margin:18px auto 0}
+.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.pill{border:1px solid #492326;color:#ffc4c6;background:#1c0c0d;padding:7px 12px;border-radius:999px;font-size:.85rem}
+main{padding-bottom:56px}
+.toolbar{position:sticky;top:0;z-index:5;background:#080808eF;backdrop-filter:blur(14px);padding:12px 0;border-bottom:1px solid #242424}
+.controls{display:flex;gap:10px;flex-wrap:wrap}
+input{flex:1;min-width:180px;background:#151515;color:white;border:1px solid #393939;border-radius:12px;padding:13px 14px;font:inherit;outline:none}
+input:focus{border-color:var(--red);box-shadow:0 0 0 3px #ff303822}
+button,.button{font:inherit;font-weight:750;border:1px solid var(--red);border-radius:12px;padding:12px 15px;background:var(--red);color:#130708;cursor:pointer;transition:transform .15s,filter .15s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+button:hover,.button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button.secondary{background:#171717;color:#fff;border-color:#414141}
+.status{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.88rem;padding:14px 2px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.rule{background:linear-gradient(145deg,#171717,#101010);border:1px solid var(--line);border-radius:16px;padding:17px;display:flex;gap:13px;align-items:flex-start;min-height:100px}
+.num{flex:0 0 40px;height:40px;border-radius:12px;background:#2a0d0f;color:var(--red);display:grid;place-items:center;font-weight:900;border:1px solid #542024}
+.rule p{margin:5px 0 0;font-weight:600}
+.empty{grid-column:1/-1;text-align:center;padding:34px;color:var(--muted);border:1px dashed #444;border-radius:14px}
+.qrbox{margin:34px 0 0;background:linear-gradient(145deg,#1a1011,#101010);border:1px solid #482125;border-radius:22px;padding:24px;text-align:center}
+.qrbox h2{margin:0 0 8px;font-size:1.6rem}
+.qrbox p{color:var(--muted);margin:0 auto 16px;max-width:520px}
+#qrcode{display:inline-grid;place-items:center;background:white;padding:12px;border-radius:14px;min-width:120px;min-height:120px;color:#111;margin:8px auto 14px}
+#qrcode img,#qrcode canvas{display:block;max-width:100%;height:auto}
+.url{overflow-wrap:anywhere;color:#ffb6b9;font-size:.9rem;margin:8px 0 14px}
+footer{border-top:1px solid #292929;color:#8d8d8d;text-align:center;padding:24px 0 32px;font-size:.85rem}
+@media(max-width:620px){.grid{grid-template-columns:1fr}header{padding-top:38px}.controls button{flex:1}.rule{min-height:unset}.status{font-size:.8rem}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="logo" aria-hidden="true">🤝</div>
+  <div class="kicker">Le code de la fraternité</div>
+  <h1>BROS <span>CODE</span></h1>
+  <p class="subtitle">50 règles pour une amitié basée sur la loyauté, la confiance et le respect. Un vrai bro reste un vrai bro.</p>
+  <div class="pills"><span class="pill">🔥 50 articles</span><span class="pill">🤝 Loyauté</span><span class="pill">🛡️ Respect</span></div>
+</header>
+<main class="wrap">
+  <section class="toolbar" aria-label="Outils de recherche">
+    <div class="controls">
+      <input id="search" type="search" placeholder="🔎 Rechercher une règle…" aria-label="Rechercher une règle">
+      <button id="copyAll">📋 Copier les 50 règles</button>
+      <button class="secondary" id="copyLink">🔗 Copier le lien</button>
+    </div>
+    <div class="status"><span id="count">50 règles</span><span>LE BROS CODE • ÉDITION OFFICIELLE</span></div>
+  </section>
+  <section id="rules" class="grid" aria-live="polite"></section>
+  <section class="qrbox">
+    <h2>📱 Partage le Bros Code</h2>
+    <p>Scanne ce QR code pour ouvrir cette page. Une fois le site publié, il pointera automatiquement vers son adresse en ligne.</p>
+    <div id="qrcode"><span>QR code en préparation…</span></div>
+    <div class="url" id="siteUrl"></div>
+    <button class="secondary" id="downloadQr">⬇️ Télécharger le QR code</button>
+  </section>
+</main>
+<footer><div class="wrap">BROS CODE © • La loyauté, le respect et la fraternité avant tout.</div></footer>
+<script>
+const rules = ["Un bro passe avant les embrouilles inutiles.", "Ne jamais trahir la confiance d’un bro.", "Toujours soutenir son bro quand il en a besoin.", "Ne jamais révéler un secret confié par un bro.", "Défendre son bro face aux injustices.", "Ne jamais abandonner un bro dans un moment difficile.", "Un bro mérite le respect, même quand il se trompe.", "Ne jamais humilier son bro devant les autres.", "Si un bro tombe, aide-le à se relever.", "Ne jamais mentir à son bro pour rien.", "Ne pas juger sans connaître toute l’histoire.", "Un bro doit pouvoir compter sur toi.", "Ne jamais voler les affaires d’un bro.", "Toujours rendre ce qu’on emprunte.", "Ne jamais lancer une embrouille entre deux bros.", "Ne pas répéter les conversations privées.", "Respecter les limites de son bro.", "Ne jamais forcer un bro à faire quelque chose.", "Accepter qu’un bro puisse dire non.", "Ne jamais se moquer d’un bro pour ses goûts.", "Ne pas abandonner ses amis pour être populaire.", "Prévenir son bro quand il y a un problème.", "Ne jamais faire semblant d’être son ami.", "Dire la vérité, même quand c’est difficile.", "Ne jamais profiter de la gentillesse d’un bro.", "Partager les bons moments avec ses bros.", "Ne jamais gâcher volontairement la réussite d’un bro.", "Féliciter son bro quand il réussit.", "Ne pas être jaloux de ses réussites.", "Respecter les passions de chacun.", "Ne jamais publier une photo gênante sans accord.", "Ne pas lire les messages privés d’un bro.", "Ne jamais utiliser un secret contre son bro.", "Régler les conflits en parlant calmement.", "Ne pas laisser une rumeur détruire une amitié.", "Ne jamais faire pression sur son bro pour choisir un camp.", "Respecter la copine ou le copain de son bro.", "Ne jamais draguer quelqu’un juste pour blesser son bro.", "Ne pas considérer une personne comme un objet ou un trophée.", "Accepter que son bro ait d’autres amis.", "Ne jamais confondre loyauté et obéissance aveugle.", "Un vrai bro sait reconnaître ses erreurs.", "Un vrai bro sait s’excuser.", "Ne jamais se moquer d’un bro qui demande de l’aide.", "Être présent sans forcément avoir de solution.", "Ne jamais abandonner une amitié pour une petite dispute.", "Faire passer le respect avant l’ego.", "Ne jamais pousser un bro à prendre des risques dangereux.", "Protéger la confiance, pas les mauvaises actions.", "Un vrai bro reste loyal, honnête et respectueux."];
+const grid = document.getElementById('rules');
+const search = document.getElementById('search');
+const count = document.getElementById('count');
+function render() {
+  const q = search.value.trim().toLocaleLowerCase('fr');
+  const matches = rules.map((text, i) => ({text, i})).filter(x => (`${x.i+1} ${x.text}`).toLocaleLowerCase('fr').includes(q));
+  grid.innerHTML = '';
+  count.textContent = `${matches.length} règle${matches.length>1?'s':''}`;
+  if (!matches.length) {
+    grid.innerHTML = '<div class="empty">Aucune règle trouvée. Essaie un autre mot-clé.</div>';
+    return;
+  }
+  for (const item of matches) {
+    const card = document.createElement('article');
+    card.className = 'rule';
+    const num = document.createElement('div'); num.className = 'num'; num.textContent = String(item.i+1).padStart(2,'0');
+    const p = document.createElement('p'); p.textContent = item.text;
+    card.append(num,p); grid.append(card);
+  }
+}
+search.addEventListener('input', render);
+document.getElementById('copyAll').addEventListener('click', async () => {
+  const text = '🤝🔥 LE BROS CODE 🔥🤝\n\n' + rules.map((r,i)=>`${i+1}. ${r}`).join('\n');
+  try { await navigator.clipboard.writeText(text); alert('Les 50 règles ont été copiées !'); }
+  catch(e) { window.prompt('Copie les règles ci-dessous :', text); }
+});
+document.getElementById('copyLink').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(location.href); alert('Lien copié !'); }
+  catch(e) { window.prompt('Copie le lien du site :', location.href); }
+});
+document.getElementById('siteUrl').textContent = location.protocol === 'file:' ? 'Publie le site pour obtenir ici son adresse publique.' : location.href;
+document.getElementById('downloadQr').addEventListener('click', () => {
+  const canvas = document.querySelector('#qrcode canvas');
+  const img = document.querySelector('#qrcode img');
+  if (canvas) { const a=document.createElement('a'); a.download='bros-code-qr.png'; a.href=canvas.toDataURL('image/png'); a.click(); }
+  else if (img) { const a=document.createElement('a'); a.download='bros-code-qr.png'; a.href=img.src; a.click(); }
+  else alert('Le QR code n’est pas encore prêt. Vérifie ta connexion internet et recharge la page.');
+});
+render();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function() {
+ const el=document.getElementById('qrcode');
+ const make=()=> {
+   if (typeof QRCode === 'undefined') { el.innerHTML='<span>Connexion nécessaire pour générer le QR code.</span>'; return; }
+   el.innerHTML='';
+   const target = location.protocol === 'file:' ? 'https://example.com' : location.href;
+   new QRCode(el, {text:target,width:190,height:190,colorDark:'#080808',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+ };
+ if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',make); else make();
+})();
+</script>
+</body>
+</html>
